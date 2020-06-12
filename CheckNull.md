@@ -118,5 +118,5 @@ Console.WriteLine(a);
 ```
 
 Note, 
-* `a ??= 0` is the same as `a == null ? -1 : a`, the former is neat.
+* `a ??= 0` is the same as `a == null ? 0 : a`, the former is neat.
 * `??` is available in C# 8.0 and later.
