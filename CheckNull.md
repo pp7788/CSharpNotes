@@ -1,4 +1,4 @@
-## 7 Ways to check if an instance x is null.
+## 7 ways to check if an instance x is null.
 
 #### 1. use `==`
 
