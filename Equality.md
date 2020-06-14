@@ -31,12 +31,12 @@ The behavior of `==` operator is determined by the __compile-time types__ of its
 
    ```csharp
    var x = float.NaN;
-   Console.WriteLine(float.NaN == x); // return False
+   float.NaN == x; // return False
    ```
 
    Use `isNaN` instead.
    ```csharp
-   Console.WriteLine(float.IsNaN(x)); // return True
+   float.IsNaN(x); // return True
    ```
 #### 1.2 non-static Equals method
 
