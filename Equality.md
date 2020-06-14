@@ -53,7 +53,7 @@ public override bool Equals(object obj)
 
 ## check NaN via == ?
 
-* The NaN value is neither greater than, less than, nor equal to any other double (or float) value, including NaN. 
+* The NaN value is neither greater than, less than, nor equal to any other double (or float) value, __including NaN__. 
 
 ```csharp
 var x = float.NaN;
