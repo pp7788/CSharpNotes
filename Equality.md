@@ -70,7 +70,7 @@ The behavior of `==` operator is determined by the __compile-time types__ of its
 
 #### step 1. overload `==`
 
-* When overload `==`, don't forget to overload `!=`.
+* When overload `==`, don't forget to overload `!=` as well.
 
    ```csharp
    public static bool operator ==(iType x, iType y)
@@ -117,4 +117,7 @@ The behavior of `==` operator is determined by the __compile-time types__ of its
 
 #### step 3. override `GetHashCode`
 
+* The hashCode is used as a shortcut to determine equality, thus __equal objects should have the same hash code.__ If we override equals, we must create a matching hashCode implementation, otherwise things that are equal according to our implementation would likely not have the same hash code because they use object‘s implementation.
+
+* Use the same fields that are used in equals (or a subset thereof).
 
