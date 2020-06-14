@@ -66,7 +66,7 @@ The behavior of `==` operator is determined by the __compile-time types__ of its
 
    This method returns true if x and y refer to the same object or are both null. 
 
-## 2. How to re-define equality?
+## 2. How to redefine equality?
 
 #### step 1. overload `==`
 
