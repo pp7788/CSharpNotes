@@ -2,7 +2,7 @@
 
 ## equality override
 
-#### 1. override `==`
+#### 1. overload `==`
 
 ```csharp
 public static bool operator ==(iType x, iType y)
@@ -20,10 +20,25 @@ public static bool operator ==(iType x, iType y)
         // code to determine if x == y
     }
 }
-```
-```csharp
+
 public static bool operator !=(iType x, iType y)
 {
     return !(x == y);
+}
+```
+
+#### 2. override `Equals`
+
+```csharp
+public override bool Equals(object obj)
+{
+    if (obj is iType)
+    {
+        return this == (iType)obj;
+    }
+    else
+    {
+        return false;
+    }
 }
 ```
