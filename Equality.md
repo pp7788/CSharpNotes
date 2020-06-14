@@ -2,7 +2,7 @@
 
 ## equality override
 
-#### 1. overload `==`
+#### step 1. overload `==`
 
 ```csharp
 public static bool operator ==(iType x, iType y)
@@ -27,7 +27,11 @@ public static bool operator !=(iType x, iType y)
 }
 ```
 
-#### 2. override `Equals`
+#### step 2. override `Equals`
+
+* __If overload ==, then must override Equals.__ When a type overloads the equality operator, it must also override the Equals(Object) method to provide the same functionality. 
+
+* This is typically accomplished by writing the Equals(Object) method __in terms of the overloaded equality operator.__
 
 ```csharp
 public override bool Equals(object obj)
@@ -43,7 +47,7 @@ public override bool Equals(object obj)
 }
 ```
 
-#### 3. override `GetHashCode`
+#### step 3. override `GetHashCode`
 
 ## check NaN via == ?
 
