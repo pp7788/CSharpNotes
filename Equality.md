@@ -66,13 +66,13 @@ The behavior of `==` operator is determined by the __compile-time types__ of its
 
    This method returns true if x and y refer to the same object or are both null. 
    
-```csharp
-string a = "abc";
-string b = "0abc".Substring(1);
+   ```csharp
+   string a = "abc";
+   string b = "0abc".Substring(1);
 
-bool comp3 = Equals(a, b);          // return True
-bool comp4 = ReferenceEquals(a, b); // return False
-```
+   bool comp3 = Equals(a, b);          // return True
+   bool comp4 = ReferenceEquals(a, b); // return False
+   ```
 
 ## 2. How to redefine equality?
 
