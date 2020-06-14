@@ -34,7 +34,7 @@ The behavior of `==` operator is determined by the __compile-time types__ of its
    float.NaN == x; // return False
    ```
 
-   Use `isNaN` instead.
+   Use `IsNaN` instead.
    ```csharp
    float.IsNaN(x); // return True
    ```
