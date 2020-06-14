@@ -62,7 +62,7 @@ The behavior of `==` operator is determined by the __compile-time types__ of its
 
    The main purpose of this method is to __avoid the NullReferenceException__ that is thrown by x.Equals(y) when x is null.
 
-* bool ReferenceEquals(object x, object y)
+* static bool ReferenceEquals(object x, object y)
 
    This method returns true if x and y refer to the same object or are both null. 
 
