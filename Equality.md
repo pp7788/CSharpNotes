@@ -42,3 +42,15 @@ public override bool Equals(object obj)
     }
 }
 ```
+
+#### 3. override `GetHashCode`
+
+## check NaN via == ?
+
+```csharp
+var x = float.NaN;
+Console.WriteLine(float.NaN == x); // return False
+Console.WriteLine(float.IsNaN(x)); // return True
+```
+
+Because the NaN value is neither greater than, less than, nor equal to any other double (or float) value, including NaN. 
