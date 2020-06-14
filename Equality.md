@@ -25,7 +25,7 @@
     ```
 * Can we check NaN via == ?
 
-   No, because the NaN value is neither greater than, less than, nor equal to any other double (or float) value, __including NaN__. 
+   No, because the NaN value is neither greater than, less than, nor equal to any other double (or float) value, __including NaN__. 
 
    ```csharp
    var x = float.NaN;
