@@ -1,6 +1,8 @@
-## equality in C#
+# Equality in C#
 
-#### 1. `==`
+## 1. How C# handles equality?
+
+#### 1.1 `==`
 
 * value type
     * `==` evaluates to __True__ if its operands contain the same values.
@@ -21,8 +23,21 @@
     bool comp1 = a == b; // return True
     bool comp2 = x == y; // return False
     ```
+* Can we check NaN via == ?
 
-## equality override
+   No, because the NaN value is neither greater than, less than, nor equal to any other double (or float) value, __including NaN__. 
+
+   ```csharp
+   var x = float.NaN;
+   Console.WriteLine(float.NaN == x); // return False
+   ```
+
+   Use `isNaN` instead.
+   ```csharp
+   Console.WriteLine(float.IsNaN(x)); // return True
+   ```
+
+## 2. How to re-define equality?
 
 #### step 1. overload `==`
 
@@ -73,13 +88,4 @@ public override bool Equals(object obj)
 
 #### step 3. override `GetHashCode`
 
-## Can we check NaN via == ?
 
-* No, because the NaN value is neither greater than, less than, nor equal to any other double (or float) value, __including NaN__. 
-
-```csharp
-var x = float.NaN;
-Console.WriteLine(float.NaN == x); // return False
-
-Console.WriteLine(float.IsNaN(x)); // return True
-```
