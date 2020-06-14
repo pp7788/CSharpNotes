@@ -50,6 +50,7 @@ public override bool Equals(object obj)
 ```csharp
 var x = float.NaN;
 Console.WriteLine(float.NaN == x); // return False
+
 Console.WriteLine(float.IsNaN(x)); // return True
 ```
 
