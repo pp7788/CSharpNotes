@@ -4,6 +4,8 @@
 
 #### step 1. overload `==`
 
+* When overload `==`, don't forget to overload `!=`.
+
 ```csharp
 public static bool operator ==(iType x, iType y)
 {
@@ -51,11 +53,11 @@ public override bool Equals(object obj)
 
 ## check NaN via == ?
 
+* The NaN value is neither greater than, less than, nor equal to any other double (or float) value, including NaN. 
+
 ```csharp
 var x = float.NaN;
 Console.WriteLine(float.NaN == x); // return False
 
 Console.WriteLine(float.IsNaN(x)); // return True
 ```
-
-Because the NaN value is neither greater than, less than, nor equal to any other double (or float) value, including NaN. 
