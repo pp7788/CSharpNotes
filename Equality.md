@@ -49,7 +49,7 @@ The behavior of `==` operator is determined by the __compile-time types__ of its
    bool comp6 = x.Equals(y); // return True
    ```
 
-* Another difference occures when two types are different, __when x is not a super-type of y.__ In this case, x.Equals(y) returns false by default; however x == y either will be disallowed (if the two types are inconsistent) or will be performed using the type of y. 
+* Another difference occures when two types are different, more specifically, __when x is not a super-type of y.__ In this case, x.Equals(y) returns false by default; however x == y either will be disallowed (if the two types are inconsistent) or will be performed using the type of y. 
 
    ```csharp
    5.Equals(5.0) // return False
