@@ -4,6 +4,8 @@
 
 #### 1.1 `==`
 
+The behavior of `==` operator is determined by the __compile-time types__ of its operands. This is determined by the declared types of variables, the declared return types of methods or properties, and the rules for evaluating expressions. 
+
 * value type
     * `==` evaluates to __True__ if its operands contain the same values.
     
@@ -36,6 +38,26 @@
    ```csharp
    Console.WriteLine(float.IsNaN(x)); // return True
    ```
+#### 1.2 non-static Equals method
+
+The biggest difference between this method and the `==` operator is that the behavior of x.Equals(y) is determined by the __run-time type__ of x. This is determined by the actual type of the object, independent of how any variables or return types are declared.
+
+```csharp
+bool comp3 = a.Equals(b); // return True
+bool comp4 = a.Equals(x); // return True
+bool comp5 = x.Equals(a); // return True
+bool comp6 = x.Equals(y); // return True
+```
+
+#### 1.3 static methods
+
+* static bool Equals(object x, object y)
+
+   The main purpose of this method is to __avoid the NullReferenceException__ that is thrown by x.Equals(y) when x is null.
+
+* bool ReferenceEquals(object x, object y)
+
+   This method returns true if x and y refer to the same object or are both null. 
 
 ## 2. How to re-define equality?
 
