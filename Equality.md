@@ -42,19 +42,19 @@ The behavior of `==` operator is determined by the __compile-time types__ of its
 
 * The biggest difference between this method and the `==` operator is that the behavior of x.Equals(y) is determined by the __run-time type__ of x. This is determined by the actual type of the object, independent of how any variables or return types are declared.
 
-```csharp
-bool comp3 = a.Equals(b); // return True
-bool comp4 = a.Equals(x); // return True
-bool comp5 = x.Equals(a); // return True
-bool comp6 = x.Equals(y); // return True
-```
+   ```csharp
+   bool comp3 = a.Equals(b); // return True
+   bool comp4 = a.Equals(x); // return True
+   bool comp5 = x.Equals(a); // return True
+   bool comp6 = x.Equals(y); // return True
+   ```
 
 * Another difference occures when two types are different.
 
-```csharp
-5.Equals(5.0) // return False
-5 == 5.0 // return True
-```
+   ```csharp
+   5.Equals(5.0) // return False
+   5 == 5.0 // return True
+   ```
 
 #### 1.3 static methods
 
@@ -72,28 +72,28 @@ bool comp6 = x.Equals(y); // return True
 
 * When overload `==`, don't forget to overload `!=`.
 
-```csharp
-public static bool operator ==(iType x, iType y)
-{
-    if (Equals(x, null))
-    {
-         return (Equals(y, null));
-    }
-    else if (Equals(y, null))
-    {
-        return false;
-    }
-    else
-    {
-        // code to determine if x == y
-    }
-}
+   ```csharp
+   public static bool operator ==(iType x, iType y)
+   {
+       if (Equals(x, null))
+       {
+            return (Equals(y, null));
+       }
+       else if (Equals(y, null))
+       {
+           return false;
+       }
+       else
+       {
+           // code to determine if x == y
+       }
+   }
 
-public static bool operator !=(iType x, iType y)
-{
-    return !(x == y);
-}
-```
+   public static bool operator !=(iType x, iType y)
+   {
+       return !(x == y);
+   }
+   ```
 
 #### step 2. override `Equals`
 
@@ -101,19 +101,19 @@ public static bool operator !=(iType x, iType y)
 
 * This is typically accomplished by writing the Equals(Object) method __in terms of the overloaded equality operator.__
 
-```csharp
-public override bool Equals(object obj)
-{
-    if (obj is iType)
-    {
-        return this == (iType)obj;
-    }
-    else
-    {
-        return false;
-    }
-}
-```
+   ```csharp
+   public override bool Equals(object obj)
+   {
+       if (obj is iType)
+       {
+           return this == (iType)obj;
+       }
+       else
+       {
+           return false;
+       }
+   }
+   ```
 
 #### step 3. override `GetHashCode`
 
