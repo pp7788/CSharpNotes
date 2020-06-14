@@ -1,4 +1,6 @@
-## 7 ways to check if an instance x is null.
+# Check Null in C#
+
+### 7 ways to check if an instance x is null.
 
 #### 1. use `==`
 
