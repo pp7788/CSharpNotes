@@ -129,3 +129,94 @@ The behavior of `==` operator is determined by the __compile-time types__ of its
 
 * Use the same fields that are used in equals (or a subset thereof).
 
+## 3. A simple example
+
+```csharp
+class Person : Object
+ {
+     public string FirstName { get; set; }
+     public string LastName { get; set; }
+
+     public Person(string firstName, string lastName)
+     {
+         this.LastName = lastName;
+         this.FirstName = firstName;
+     }
+
+     // overload ==
+     public static bool operator ==(Person a, Person b)
+     {
+         if (Equals(a, null))
+         {
+             return Equals(b, null);
+         }
+         else if (Equals(b, null))
+         {
+             return false;
+         }
+         else
+         {
+             return a.FirstName == b.FirstName && a.LastName == b.LastName;
+         }
+     }
+
+     // overload !=
+     public static bool operator !=(Person a, Person b)
+     {
+         return !(a == b);
+     }
+
+     // override Equals
+     public override bool Equals(object obj)
+     {
+         if (obj is Person)
+         {
+             return this == (Person)obj;
+         }
+         else
+         {
+             return false;
+         }
+     }
+   
+     // override GetHashCode
+     public override int GetHashCode()
+     {
+         return (FirstName.GetHashCode() + LastName.GetHashCode());
+     }
+
+ }
+
+ class Program
+ {
+     static void Main(string[] args)
+     {
+         var p1 = new Person("John", "Doe");
+         var p2 = new Person("John", "Doe");
+         var set = new HashSet<Person>() { new Person("John", "Doe") };
+         
+         Console.WriteLine($"p1 == p2: {p1 == p2}");
+         Console.WriteLine($"p1.Equals(p2): {p1.Equals(p2)}");
+         Console.WriteLine($"set.Contains(p1): {set.Contains(p1)}");
+
+     }
+ }
+```
+
+* no overload or override
+   
+   * p1 == p2: `False`
+   * p1.Equals(p2): `False`
+   * set.Contains(p1): `False`
+
+* overload ==, override Equals, but keep original GetHashCode
+   
+   * p1 == p2: `True`
+   * p1.Equals(p2): `True`
+   * set.Contains(p1): `False`
+
+* overload ==, override Equals and GetHashCode
+   
+   * p1 == p2: `True`
+   * p1.Equals(p2): `True`
+   * set.Contains(p1): `True`
