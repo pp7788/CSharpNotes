@@ -203,7 +203,7 @@ class Person : Object
  }
 ```
 
-* no overload or override
+* no overload or override, and keep original GetHashCode
    
    * p1 == p2: `False`
    * p1.Equals(p2): `False`
