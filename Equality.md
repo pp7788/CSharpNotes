@@ -146,6 +146,25 @@ class Person : Object
 ```
 
 ```csharp
+static void Main(string[] args)
+{
+   var p1 = new Person("John", "Doe");
+   var p2 = new Person("John", "Doe");
+   var set = new HashSet<Person>() { new Person("John", "Doe") };
+
+   Console.WriteLine($"p1 == p2: {p1 == p2}");
+   Console.WriteLine($"p1.Equals(p2): {p1.Equals(p2)}");
+   Console.WriteLine($"set.Contains(p1): {set.Contains(p1)}");
+}
+```
+
+* no overload or override, and keep original GetHashCode
+   
+   * p1 == p2: `False`
+   * p1.Equals(p2): `False`
+   * set.Contains(p1): `False`
+
+```csharp
 // overload ==
 public static bool operator ==(Person a, Person b)
 {
@@ -185,6 +204,12 @@ public override bool Equals(object obj)
 }
 ```
 
+* overload ==, override Equals, but keep original GetHashCode
+   
+   * p1 == p2: `True`
+   * p1.Equals(p2): `True`
+   * set.Contains(p1): `False`
+
 ```csharp
 // override GetHashCode
 public override int GetHashCode()
@@ -192,31 +217,6 @@ public override int GetHashCode()
    return (FirstName.GetHashCode() + LastName.GetHashCode());
 }
 ```
-
-```csharp
-static void Main(string[] args)
-{
-   var p1 = new Person("John", "Doe");
-   var p2 = new Person("John", "Doe");
-   var set = new HashSet<Person>() { new Person("John", "Doe") };
-
-   Console.WriteLine($"p1 == p2: {p1 == p2}");
-   Console.WriteLine($"p1.Equals(p2): {p1.Equals(p2)}");
-   Console.WriteLine($"set.Contains(p1): {set.Contains(p1)}");
-}
-```
-
-* no overload or override, and keep original GetHashCode
-   
-   * p1 == p2: `False`
-   * p1.Equals(p2): `False`
-   * set.Contains(p1): `False`
-
-* overload ==, override Equals, but keep original GetHashCode
-   
-   * p1 == p2: `True`
-   * p1.Equals(p2): `True`
-   * set.Contains(p1): `False`
 
 * overload ==, override Equals and GetHashCode
    
