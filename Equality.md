@@ -133,7 +133,7 @@ The behavior of `==` operator is determined by the __compile-time types__ of its
 
 ```csharp
 class Person : Object
-   {
+{
      public string FirstName { get; set; }
      public string LastName { get; set; }
 
